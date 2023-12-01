@@ -58,27 +58,6 @@ func part2(input string) int {
 	return sum
 }
 
-func replaceDigitWords(input string) string {
-	digitToValueMap := map[string]int{
-		"one":   1,
-		"two":   2,
-		"three": 3,
-		"four":  4,
-		"five":  5,
-		"six":   6,
-		"seven": 7,
-		"eight": 8,
-		"nine":  9,
-	}
-	convertedInput := strings.Clone(input)
-
-	for digitWord, digit := range digitToValueMap {
-		digitStr := fmt.Sprint(digit)
-		convertedInput = strings.ReplaceAll(convertedInput, digitWord, digitWord+digitStr+digitWord)
-	}
-	return convertedInput
-}
-
 func parseInput(input string, shouldReplaceDigitWords bool) []int {
 	calibrationValues := []int{}
 
@@ -99,8 +78,29 @@ func parseInput(input string, shouldReplaceDigitWords bool) []int {
 			}
 		}
 
-		num := digits[0]*10 + digits[len(digits)-1]
-		calibrationValues = append(calibrationValues, num)
+		calibrationValue := digits[0]*10 + digits[len(digits)-1]
+		calibrationValues = append(calibrationValues, calibrationValue)
 	}
 	return calibrationValues
+}
+
+func replaceDigitWords(input string) string {
+	digitToValueMap := map[string]int{
+		"one":   1,
+		"two":   2,
+		"three": 3,
+		"four":  4,
+		"five":  5,
+		"six":   6,
+		"seven": 7,
+		"eight": 8,
+		"nine":  9,
+	}
+	convertedInput := strings.Clone(input)
+
+	for digitWord, digit := range digitToValueMap {
+		digitStr := fmt.Sprint(digit)
+		convertedInput = strings.ReplaceAll(convertedInput, digitWord, digitWord+digitStr+digitWord)
+	}
+	return convertedInput
 }
