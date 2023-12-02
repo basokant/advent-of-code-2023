@@ -67,9 +67,7 @@ func (g Game) getMinCubeCounts() map[Colour]int {
 
 	for _, cubeSet := range g.cubeSets {
 		for colour, minCount := range minCubeCounts {
-			if cubeSet[colour] > minCount {
-				minCubeCounts[colour] = cubeSet[colour]
-			}
+			minCubeCounts[colour] = max(cubeSet[colour], minCount)
 		}
 	}
 
