@@ -43,8 +43,8 @@ func StringToColour(s string) (Colour, error) {
 }
 
 type Game struct {
-	id       int
 	cubeSets []map[Colour]int
+	id       int
 }
 
 func (g Game) isPossible(cubeCounts map[Colour]int) bool {
@@ -111,11 +111,11 @@ func part1(input string) int {
 	}
 
 	games := parseInput(input)
-	possibleGameIds := []int{}
+	possibleGameIds := make([]int, len(games))
 
-	for _, game := range games {
+	for i, game := range games {
 		if game.isPossible(cubeCounts) {
-			possibleGameIds = append(possibleGameIds, game.id)
+			possibleGameIds[i] = game.id
 		}
 	}
 
