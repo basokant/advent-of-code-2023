@@ -109,8 +109,8 @@ func part1(input string) int {
 	}
 
 	games := parseInput(input)
-	possibleGameIds := make([]int, len(games))
 
+	possibleGameIds := make([]int, len(games))
 	for i, game := range games {
 		if game.isPossible(cubeCounts) {
 			possibleGameIds[i] = game.id
