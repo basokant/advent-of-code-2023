@@ -117,8 +117,8 @@ func part2(input string) int {
 
 	locations := []int{}
 	for i := 0; i < numSeedRanges; i++ {
-		startSeed := seedRanges[i]
-		rangeLen := seedRanges[i+1]
+		startSeed := seedRanges[2*i]
+		rangeLen := seedRanges[(2*i)+1]
 
 		for seed := startSeed; seed < startSeed+rangeLen; seed++ {
 			output := seed
