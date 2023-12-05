@@ -66,7 +66,7 @@ func part1(input string) int {
 func part2(input string) int {
 	winningSets, mySets := parseInput(input)
 	numCardsMap := make(map[int]int)
-	for i, _ := range winningSets {
+	for i := range winningSets {
 		numCardsMap[i] = 1
 	}
 
