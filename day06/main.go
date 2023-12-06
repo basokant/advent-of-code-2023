@@ -38,10 +38,6 @@ func main() {
 	}
 }
 
-func computeDistance(speed int, time int) int {
-	return speed * (time - speed)
-}
-
 func part1(input string) int {
 	races := parseInput(input)
 
@@ -79,17 +75,8 @@ type Race struct {
 	distance int
 }
 
-func parseInputPart2(input string) Race {
-	lines := strings.Split(input, "\n")
-	re := regexp.MustCompile("[0-9]+")
-
-	timesDigits := re.FindAllString(lines[0], -1)
-	distancesDigits := re.FindAllString(lines[1], -1)
-
-	time, _ := strconv.Atoi(strings.Join(timesDigits, ""))
-	distance, _ := strconv.Atoi(strings.Join(distancesDigits, ""))
-
-	return Race{time, distance}
+func computeDistance(speed int, time int) int {
+	return speed * (time - speed)
 }
 
 func parseInput(input string) []Race {
@@ -109,4 +96,17 @@ func parseInput(input string) []Race {
 	}
 
 	return races
+}
+
+func parseInputPart2(input string) Race {
+	lines := strings.Split(input, "\n")
+	re := regexp.MustCompile("[0-9]+")
+
+	timesDigits := re.FindAllString(lines[0], -1)
+	distancesDigits := re.FindAllString(lines[1], -1)
+
+	time, _ := strconv.Atoi(strings.Join(timesDigits, ""))
+	distance, _ := strconv.Atoi(strings.Join(distancesDigits, ""))
+
+	return Race{time, distance}
 }
