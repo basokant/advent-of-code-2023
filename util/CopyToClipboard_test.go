@@ -6,6 +6,6 @@ import "testing"
 func TestCopyToClipboard(t *testing.T) {
 	err := CopyToClipboard("asdfqwert")
 	if err != nil {
-		t.Errorf("Unexpected error while running CopyToClipboard: %w", err)
+		t.Errorf("Unexpected error while running CopyToClipboard: %s", err.Error())
 	}
 }
