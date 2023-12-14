@@ -111,6 +111,7 @@ func part1(input string) int {
 	return lowestLocation
 }
 
+// TODO: solve day05 part2
 func part2(input string) int {
 	seedRanges, maps := parseInput(input)
 	numSeedRanges := len(seedRanges) / 2

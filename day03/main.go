@@ -51,6 +51,7 @@ func part1(input string) int {
 	return sum
 }
 
+// TODO: solve day03 part2, currently not passing test.
 func part2(input string) int {
 	gearRatios := findGearRatios(input)
 
